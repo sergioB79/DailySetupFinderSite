@@ -138,7 +138,7 @@ export default async function Page() {
   const { snapshot, diff, source } = latest;
   const highlight = snapshot.sections.find((s) => s.id === "snapshot");
   const narrative = snapshot.sections.filter((s) => s.id !== "snapshot");
-  const title = `Daily Free Forex Report — ${snapshot.asOf}`;
+  const title = `FX Macro Daily Brief — ${snapshot.asOf}`;
 
   return (
     <div className="page">
@@ -146,7 +146,6 @@ export default async function Page() {
         <div className="hero-copy">
           <div className="meta">
             <span className="pill">As of {snapshot.asOf}</span>
-            <span className="pill">Source: {source}</span>
           </div>
           <h1>{title}</h1>
           {highlight && highlight.items.length > 0 && <p>{highlight.items[0]}</p>}
@@ -178,28 +177,28 @@ export default async function Page() {
                 className="section-title"
                 style={{ marginBottom: 8, fontSize: 22, letterSpacing: -0.02, color: "#eaf7ff" }}
               >
-                Unlock today’s Movers Playbook
+                Unlock today’s FX Movers Dossier
               </h3>
               <p style={{ margin: "0 0 14px", color: "var(--muted)", lineHeight: 1.6 }}>
-                Detailed daily analysis of the 6 most-moving FX pairs + Gold, Silver, GER40.
+                Deep-dive dossier on the top-moving FX pairs + Gold, Silver, GER40—built for execution.
               </p>
               <ul className="cta-list" style={{ textAlign: "left", maxWidth: 600, margin: "0 auto 12px" }}>
                 <li>What moved &amp; why (clean narrative)</li>
                 <li>Key levels (support/resistance + volatility bands)</li>
-                <li>2–3 scenarios + “what invalidates it”</li>
-                <li>Today’s catalysts (events, flows, positioning notes)</li>
+                <li>2-3 scenarios + "what invalidates it"</li>
+                <li>Today's catalysts (events, flows, positioning notes)</li>
                 <li>10-min read. Delivered daily.</li>
               </ul>
               <div className="cta-buttons" style={{ justifyContent: "center" }}>
                 <a className="btn primary" href="#">
-                  Get the Playbook (€39/mo)
+                  Get the Dossier (€39/mo)
                 </a>
                 <a className="btn" href="/sample">
                   See sample
                 </a>
               </div>
               <p style={{ margin: "12px auto 0", color: "var(--muted)", fontSize: 12, maxWidth: 600 }}>
-                Educational content — not investment advice. Cancel anytime.
+                Educational content - not investment advice. Cancel anytime.
               </p>
             </div>
           </div>

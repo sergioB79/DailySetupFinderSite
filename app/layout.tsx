@@ -2,8 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Daily Macro Brief",
-  description: "Cinematic daily macro brief with live Drive ingestion and scrollytelling UI.",
+  title: "FX Market Atelier",
+  description: "FX Market Atelier — cinematic FX intelligence with live ingestion and scrollytelling UI.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

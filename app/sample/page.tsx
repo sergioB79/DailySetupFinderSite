@@ -231,7 +231,7 @@ export default function SamplePage() {
             <span className="pill">Sample • Dec 12, 2025</span>
             <span className="pill">Premium snapshot</span>
           </div>
-          <h1>Movers Playbook — Sample Edition</h1>
+          <h1>FX Movers Dossier — Sample Edition</h1>
           <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>{snapshot}</p>
           <div className="chip-row">
             <span className="chip">6 FX pairs + Gold, Silver, GER40</span>
@@ -320,10 +320,10 @@ export default function SamplePage() {
           <h3 className="section-title" style={{ fontSize: 22, marginBottom: 8 }}>
             Like what you see?
           </h3>
-          <p style={{ margin: "0 0 12px", color: "var(--muted)" }}>Get the full Movers Playbook delivered daily.</p>
+          <p style={{ margin: "0 0 12px", color: "var(--muted)" }}>Get the full FX Movers Dossier delivered daily.</p>
           <div className="cta-buttons" style={{ justifyContent: "center" }}>
             <Link className="btn primary" href="/">
-              Back to today’s report
+              Back to today’s brief
             </Link>
             <a className="btn" href="#">
               Subscribe (€39/mo)
@@ -337,3 +337,6 @@ export default function SamplePage() {
     </div>
   );
 }
+
+
+

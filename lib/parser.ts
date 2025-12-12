@@ -139,7 +139,7 @@ export async function parseMarkdownToSnapshot(markdown: string, sourceFileName: 
     ? extractMetaFromHeading(topHeading.value)
     : firstLine
       ? extractMetaFromHeading(firstLine)
-      : { title: "Daily Macro Brief" };
+      : { title: "FX Macro Daily Brief" };
 
   const sections: Section[] = [];
   const sectionBuffer: { heading: Heading; items: string[] }[] = [];
