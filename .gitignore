@@ -1,0 +1,13 @@
+
+# env / secrets
+.env*
+*.json
+
+# next/node
+node_modules/
+.next/
+out/
+dist/
+
+# logs
+*.log

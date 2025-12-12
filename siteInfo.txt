@@ -1,0 +1,182 @@
+What we’re building
+
+A cinematic, modern microsite that always loads the most recent report from your Google Drive folder and turns it into a high-end, interactive “macro experience” (not a dashboard).
+
+Your report already has consistent semantic blocks (Snapshot → Key Forces → FX Implications → Risk Radar → What to Watch Next). For example: the “Macro Regime Snapshot — 2025-12-12 (Lisbon)” plus those sections appear clearly in the latest brief.
+
+Objectives
+
+Auto-ingest newest Drive file (no manual publish step).
+
+Present the daily brief as:
+
+Scrollytelling narrative
+
+3D / motion-first “macro compass”
+
+Elegant typography + ambient UI (museum-quality, not fintech SaaS)
+
+Add “pro” usability without killing the vibe:
+
+archive, search, diff vs yesterday, share links, export.
+
+Audience
+
+You + anyone you share it with (investors, friends, clients): wants clarity fast, but also “this looks insane” polish.
+
+Mobile-first for consumption; desktop gets the full “wow mode.”
+
+Data ingestion & parsing
+Source
+
+Google Drive folder: 1MMODjiYDGXbMDyE5VMwXf3v2yfbvIMLa
+
+“Latest file” rule
+
+List files in the folder, order by modifiedTime desc, take first.
+
+Download file contents.
+
+Parse into a structured JSON model.
+
+Content model (derived from your report)
+
+Your brief formats as headings + bullet blocks like:
+
+Executive Snapshot bullets
+
+Key Forces bullets
+
+FX Implications bullets
+
+Risk Radar bullets
+
+What to Watch Next bullets
+
+Normalized JSON (example)
+
+{
+  "asOf": "2025-12-12",
+  "location": "Lisbon",
+  "title": "Macro Regime Snapshot",
+  "lede": ["Global policy divergence persists...", "..."],
+  "sections": [
+    { "id": "key-forces", "items": [{ "label": "Fed hawkishness", "text": "..." }] },
+    { "id": "fx-implications", "items": [...] },
+    { "id": "risk-radar", "items": [...] },
+    { "id": "what-to-watch", "items": [...] }
+  ]
+}
+
+Experience design: “WOW” moments (not charts-in-boxes)
+1) The Macro Compass (hero)
+
+A 3D orb/compass that visualizes the day’s regime:
+
+Axes (inferred from text): Policy Divergence, Risk Tone, Commodity Volatility
+
+The orb subtly shifts based on extracted signals (“hawkish”, “dovish”, “risk-off”, “safe haven”, etc.).
+Tech: react-three-fiber + custom shaders, smooth camera choreography.
+
+2) Scroll-driven narrative (“macro film”)
+
+As you scroll:
+
+Sections animate in as floating glass panels over an ambient background.
+
+Key bullets become kinetic typography (think Apple event transitions, not slide bullets).
+
+3) Semantic highlighting + “explain this” microinteractions
+
+Hover/tap on phrases like “hawkish Fed” → see:
+
+why it matters (1 sentence)
+
+impacted assets (USD/EUR/JPY/gold)
+
+“confidence” (based on signal density in text)
+
+4) Diff mode (quietly powerful)
+
+Toggle: Today vs Yesterday
+
+Adds underlines and soft color shifts for changed bullets (no red/green screaming).
+
+Great “pro” feature that still feels premium.
+
+Architecture
+Google Drive folder
+   │
+   │ (watch webhook OR cron poll)
+   ▼
+Ingestion service (serverless)
+   - fetch latest file
+   - parse markdown/text → JSON
+   - store snapshot
+   ▼
+Storage
+  - KV/Redis for “latest”
+  - Postgres for archive + diffs
+   ▼
+Next.js Web App
+  - loads latest instantly (SSR/edge)
+  - renders 3D + scrollytelling UI
+
+Two ingestion options
+
+Simple + reliable: Vercel Cron (every 5–15 min) pulls latest.
+
+Tech stack recommendations
+
+Frontend
+
+Next.js (App Router) + TypeScript
+
+Tailwind + shadcn/ui (for base components only)
+
+Framer Motion (page + scroll choreography)
+
+react-three-fiber + drei (3D hero + shaders)
+
+Optional: Rive (ultra-polished micro animations)
+
+Backend
+
+Next.js Route Handlers (serverless)
+
+Google Drive API (service account or OAuth)
+
+Upstash Redis (latest snapshot cache)
+
+Supabase Postgres (archive + diffs)
+
+Parsing
+
+remark/mdast for Markdown
+
+simple “signal extraction” dictionary first (hawkish/dovish/risk-off/safe-haven, etc.)
+
+later: embeddings for semantic search (optional)
+
+Features & functionality (MVP → “WOW++”)
+Phase	Features
+MVP (fast)	Latest report view, beautiful typography, sections, archive list, shareable permalink
+WOW (v1)	Macro Compass 3D hero, scrollytelling transitions, diff vs yesterday
+WOW++	Semantic search, “topic map” view, export to PDF, alerts when regime changes
+Timeline & phases (practical)
+
+Phase 1 (2–4 days): ingestion + parsing + clean “magazine layout”
+
+Phase 2 (4–7 days): 3D Macro Compass + scroll choreography
+
+Phase 3 (3–5 days): archive + diff mode + performance polish
+
+Phase 4 (optional): semantic search + topic clustering
+
+Risks & mitigation
+
+Drive auth complexity: start with service account + shared folder; fall back to OAuth if needed.
+
+3D performance on mobile: “WOW mode” auto-dials down (static fallback, lower DPR).
+
+Parsing brittleness if format changes: keep a tolerant parser (headings + lists) and log anomalies.S

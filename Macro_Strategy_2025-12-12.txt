@@ -1,0 +1,108 @@
+#1. Macro Regime Snapshot (Today)
+As of December 12, 2025, the global macro environment is characterized by divergent central bank policies, with the Federal Reserve maintaining a hawkish stance amidst persistent inflationary pressures, whereas the ECB and BOJ remain dovish due to weaker economic growth and subdued inflation. Commodity markets are experiencing volatility due to geopolitical tensions affecting supply chains. The risk sentiment is moderately risk-off, driven by uncertainties in global economic growth and geopolitical tensions. This is influencing FX markets, with safe-haven currencies like USD and JPY in focus.
+
+#2. Top Setups Table (9 Rows)
+
+| Instrument | Bias    | Confidence | Horizon | Core Thesis                                                                 | Key Catalyst(s)                                | Invalidation                 | Event Risk                                         |
+|------------|---------|------------|---------|------------------------------------------------------------------------------|------------------------------------------------|------------------------------|----------------------------------------------------|
+| USDJPY     | Bullish | 9          | Swing   | Rate divergence favored by Fed's hawkish stance vs BOJ's ultra-loose policy  | Fed rate path, BOJ's dovish guidance           | BOJ policy change            | US Retail Sales, BOJ statement                      |
+| EURUSD     | Bearish | 8          | Swing   | ECB dovishness contrasts with Fed's hawkish stance                           | ECB rate path, US inflation data               | ECB hawkish shift            | Eurozone CPI, US Retail Sales                       |
+| XAUUSD     | Bearish | 7          | Intraday| Strong USD and higher yields suppressing XAUUSD                              | US Treasury yields, Fed’s guidance             | Drop in US yields            | US Retail Sales                                     |
+| AUDUSD     | Bearish | 6          | Swing   | RBA's neutral stance vs. Fed's hawkishness, China slowdown                    | RBA minutes, Chinese economic data             | RBA hawkish shift            | Chinese GDP, US Retail Sales                        |
+| GBPUSD     | Bearish | 6          | Swing   | BOE's cautious tone vs Fed's aggressive tightening                           | BOE inflation report, US economic data         | BOE hawkish surprise         | UK CPI, US Retail Sales                             |
+| GER40      | Bearish | 5          | Intraday| Weak EU growth outlook and risk-off sentiment impacting equities             | EU growth data, ECB policy                     | Strong EU growth data        | Eurozone CPI                                        |
+| XAGUSD     | Bearish | 5          | Intraday| Strong USD and risk-off sentiment weighing on silver                         | US dollar strength, global demand concerns     | Reversal in USD strength     | US Retail Sales                                     |
+| EURJPY     | Bearish | 4          | Swing   | ECB dovishness vs BOJ's dovishness, but euro weakness prevails               | ECB policy divergence, Japanese trade data     | ECB hawkish surprise         | Eurozone CPI, BOJ statement                         |
+| USDCAD     | Bullish | 4          | Intraday| Fed's rate path contrasting BoC's neutral stance, oil price volatility       | Fed policy, Canadian economic data             | BoC hawkish pivot            | Canadian CPI, US Retail Sales                       |
+
+#3. Setup Details (Per Instrument)
+
+### USDJPY
+- **Bias:** Bullish
+- **Confidence Score:** 9
+- **Horizon:** Swing
+- **Key Driver(s):** The Fed's persistent hawkish stance, with expectations of further rate hikes, contrasts sharply with the BOJ's commitment to ultra-loose monetary policy.
+- **Trigger:** USDJPY breaking above recent resistance at 150.00.
+- **Invalidation:** A shift in BOJ policy towards tightening or a dovish surprise from the Fed.
+- **Event Risk:** US Retail Sales data on the horizon could provide further directional cues.
+- **Execution Tips:** Look for entry during Tokyo or New York sessions for optimal liquidity.
+
+### EURUSD
+- **Bias:** Bearish
+- **Confidence Score:** 8
+- **Horizon:** Swing
+- **Key Driver(s):** ECB's dovish policy stance compared to the Fed's aggressive tightening path.
+- **Trigger:** A break below the 1.0500 support level.
+- **Invalidation:** A shift in ECB tone towards tightening.
+- **Event Risk:** Eurozone CPI data could impact ECB's future policy expectations.
+- **Execution Tips:** Monitor liquidity during the European session for entry opportunities.
+
+### XAUUSD
+- **Bias:** Bearish
+- **Confidence Score:** 7
+- **Horizon:** Intraday
+- **Key Driver(s):** Rising US Treasury yields and a strong USD weighing on gold prices.
+- **Trigger:** A move below the $1,900 support level.
+- **Invalidation:** A significant drop in US yields or a dovish Fed surprise.
+- **Event Risk:** US Retail Sales could influence USD strength.
+- **Execution Tips:** Consider entering during US market hours for best execution.
+
+### AUDUSD
+- **Bias:** Bearish
+- **Confidence Score:** 6
+- **Horizon:** Swing
+- **Key Driver(s):** RBA's neutral stance in contrast to the Fed's hawkish path; concerns over Chinese economic slowdown.
+- **Trigger:** Sustained trade below 0.6500.
+- **Invalidation:** Hawkish surprise from the RBA.
+- **Event Risk:** Chinese GDP and US Retail Sales could drive sentiment.
+- **Execution Tips:** Best executed during Asia session for AUD-specific liquidity.
+
+### GBPUSD
+- **Bias:** Bearish
+- **Confidence Score:** 6
+- **Horizon:** Swing
+- **Key Driver(s):** BOE's cautious tone amid Fed's tightening cycle.
+- **Trigger:** A break below 1.2000.
+- **Invalidation:** Unexpected hawkishness from the BOE.
+- **Event Risk:** UK CPI and US Retail Sales data.
+- **Execution Tips:** London session provides optimal conditions for execution.
+
+### GER40
+- **Bias:** Bearish
+- **Confidence Score:** 5
+- **Horizon:** Intraday
+- **Key Driver(s):** Weak EU growth outlook coupled with risk-off sentiment.
+- **Trigger:** A break below key support at 14,500.
+- **Invalidation:** Strong upside surprise in EU growth data.
+- **Event Risk:** Eurozone CPI and broader risk sentiment shifts.
+- **Execution Tips:** European market open provides the best liquidity.
+
+### XAGUSD
+- **Bias:** Bearish
+- **Confidence Score:** 5
+- **Horizon:** Intraday
+- **Key Driver(s):** USD strength and risk-off sentiment impacting silver.
+- **Trigger:** Sustained move below $22.00.
+- **Invalidation:** Reversal in USD strength or risk sentiment improvement.
+- **Event Risk:** US Retail Sales impacting USD.
+- **Execution Tips:** Optimal execution during US hours.
+
+### EURJPY
+- **Bias:** Bearish
+- **Confidence Score:** 4
+- **Horizon:** Swing
+- **Key Driver(s):** ECB's dovish stance more pronounced than BOJ's, leading to euro weakness.
+- **Trigger:** Break below 160.00.
+- **Invalidation:** Hawkish ECB shift.
+- **Event Risk:** Eurozone CPI and BOJ statement.
+- **Execution Tips:** Monitor liquidity during European and Asian sessions.
+
+### USDCAD
+- **Bias:** Bullish
+- **Confidence Score:** 4
+- **Horizon:** Intraday
+- **Key Driver(s):** Fed's hawkish stance versus BoC's neutral, coupled with oil price volatility.
+- **Trigger:** Sustained move above 1.3900.
+- **Invalidation:** Hawkish BoC pivot or significant oil price rebound.
+- **Event Risk:** Canadian CPI and US Retail Sales.
+- **Execution Tips:** New York session provides best execution conditions.
