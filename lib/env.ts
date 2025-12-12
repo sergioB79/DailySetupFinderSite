@@ -1,13 +1,22 @@
 import { z } from "zod";
 
+const stripQuotes = (value: unknown) => {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim().replace(/^['"]+|['"]+$/g, "");
+  return trimmed.length ? trimmed : undefined;
+};
+
+const optionalUrl = z.preprocess(stripQuotes, z.string().url().optional());
+const optionalString = z.preprocess(stripQuotes, z.string().min(1).optional());
+
 const envSchema = z.object({
   GDRIVE_FOLDER_ID: z.string().min(1),
   GOOGLE_SERVICE_ACCOUNT_JSON_B64: z.string().min(1),
   INGEST_SECRET: z.string().min(1),
   SUPABASE_URL: z.string().url(),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
-  UPSTASH_REDIS_REST_URL: z.string().url().optional(),
-  UPSTASH_REDIS_REST_TOKEN: z.string().min(1).optional(),
+  UPSTASH_REDIS_REST_URL: optionalUrl,
+  UPSTASH_REDIS_REST_TOKEN: optionalString,
 });
 
 export type Env = z.infer<typeof envSchema>;
