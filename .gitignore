@@ -1,7 +1,6 @@
-
 # env / secrets
 .env*
-*.json
+service-account*.json
 
 # next/node
 node_modules/
