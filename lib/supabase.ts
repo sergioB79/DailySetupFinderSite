@@ -41,7 +41,7 @@ export async function storeSnapshot(
   };
 
   const { data, error } = await client
-    .from<SnapshotRecord>("snapshots")
+    .from("snapshots")
     .upsert(payload, { onConflict: "as_of" })
     .select()
     .single();
@@ -57,7 +57,7 @@ export async function fetchLatestSnapshot(
   client: SupabaseClient,
 ): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
   const { data, error } = await client
-    .from<SnapshotRecord>("snapshots")
+    .from("snapshots")
     .select("*")
     .order("as_of", { ascending: false })
     .limit(1)
@@ -85,7 +85,7 @@ export async function fetchPreviousSnapshot(
   client: SupabaseClient,
 ): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
   const { data, error } = await client
-    .from<SnapshotRecord>("snapshots")
+    .from("snapshots")
     .select("*")
     .order("as_of", { ascending: false })
     .range(1, 1)
