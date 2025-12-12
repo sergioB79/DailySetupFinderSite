@@ -151,11 +151,6 @@ export default async function Page() {
           <h1>{title}</h1>
           {highlight && highlight.items.length > 0 && <p>{highlight.items[0]}</p>}
           {highlight && highlight.items.length > 1 && <p>{highlight.items[1]}</p>}
-          <div className="chip-row">
-            {diff && <span className="chip">Diff loaded</span>}
-            <span className="chip">Live ingestion</span>
-            <span className="chip">Premium narrative</span>
-          </div>
           <div className="narrative">
             <h3>Today's Narrative</h3>
             <ul className="narrative-list">
