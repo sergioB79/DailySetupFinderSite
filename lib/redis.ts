@@ -6,6 +6,9 @@ type Cached = { snapshot: Snapshot; diff: SnapshotDiff | null };
 
 async function redisCommand<T = any>(command: (string | number | boolean)[]): Promise<T> {
   const env = getEnv();
+  if (!env.UPSTASH_REDIS_REST_URL || !env.UPSTASH_REDIS_REST_TOKEN) {
+    throw new Error("Redis not configured");
+  }
   const res = await fetch(`${env.UPSTASH_REDIS_REST_URL}/pipeline`, {
     method: "POST",
     headers: {
