@@ -24,7 +24,11 @@ async function loadPremiumLatest(): Promise<LatestPayload | null> {
   const latest = await fetchLatestPremiumSnapshot(supabase);
   if (!latest) return null;
 
-  const payload = { snapshot: latest.snapshot, diff: latest.record.diff_vs_previous ?? null, source: "supabase" };
+  const payload: LatestPayload = {
+    snapshot: latest.snapshot,
+    diff: latest.record.diff_vs_previous ?? null,
+    source: "supabase",
+  };
   try {
     await cachePremiumLatestSnapshot({ snapshot: latest.snapshot, diff: latest.record.diff_vs_previous ?? null });
   } catch (err) {
