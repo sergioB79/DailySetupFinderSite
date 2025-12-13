@@ -14,7 +14,8 @@ async function loadPremiumLatest(): Promise<LatestPayload | null> {
   try {
     const cached = await getCachedPremiumLatestSnapshot();
     if (cached) {
-      return { snapshot: cached.snapshot, diff: cached.diff, source: "redis" };
+      const payload: LatestPayload = { snapshot: cached.snapshot, diff: cached.diff, source: "redis" };
+      return payload;
     }
   } catch (err) {
     console.warn("Premium Redis unavailable, falling back to Supabase", err);
