@@ -42,3 +42,18 @@ export async function getCachedLatestSnapshot(): Promise<Cached | null> {
     return null;
   }
 }
+
+export async function cachePremiumLatestSnapshot(payload: Cached): Promise<void> {
+  await redisCommand(["SET", "premium:latest-snapshot", JSON.stringify(payload)]);
+}
+
+export async function getCachedPremiumLatestSnapshot(): Promise<Cached | null> {
+  const result = await redisCommand<string | null>(["GET", "premium:latest-snapshot"]);
+  if (!result) return null;
+  try {
+    return JSON.parse(result) as Cached;
+  } catch (err) {
+    console.warn("Failed to parse premium cached snapshot", err);
+    return null;
+  }
+}

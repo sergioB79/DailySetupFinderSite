@@ -22,14 +22,14 @@ function getDriveClient(): DriveV3.Drive {
   return google.drive({ version: "v3", auth });
 }
 
-export async function fetchLatestDriveFile(): Promise<{ file: DriveFile; content: string }> {
+export async function fetchLatestDriveFile(folderId?: string): Promise<{ file: DriveFile; content: string }> {
   const env = getEnv();
   const drive = getDriveClient();
 
   const list = await drive.files.list({
     pageSize: 1,
     orderBy: "modifiedTime desc",
-    q: `'${env.GDRIVE_FOLDER_ID}' in parents and trashed = false`,
+    q: `'${folderId ?? env.GDRIVE_FOLDER_ID}' in parents and trashed = false`,
     fields: "files(id, name, modifiedTime)",
   });
 

@@ -53,11 +53,40 @@ export async function storeSnapshot(
   return data;
 }
 
-export async function fetchLatestSnapshot(
+export async function storePremiumSnapshot(
   client: SupabaseClient,
+  snapshot: Snapshot,
+  diff: SnapshotDiff | null,
+): Promise<SnapshotRecord> {
+  const payload: SnapshotRecord = {
+    as_of: snapshot.asOf,
+    location: snapshot.location ?? null,
+    title: snapshot.title,
+    sections: snapshot.sections,
+    raw_markdown: snapshot.rawMarkdown,
+    source_file_name: snapshot.sourceFileName,
+    diff_vs_previous: diff ?? null,
+  };
+
+  const { data, error } = await client
+    .from("premium_snapshots")
+    .upsert(payload, { onConflict: "as_of" })
+    .select()
+    .single();
+
+  if (error && error.code !== "PGRST116") {
+    throw error;
+  }
+
+  return data;
+}
+
+async function fetchLatestFromTable(
+  client: SupabaseClient,
+  table: "snapshots" | "premium_snapshots",
 ): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
   const { data, error } = await client
-    .from("snapshots")
+    .from(table)
     .select("*")
     .order("as_of", { ascending: false })
     .limit(1)
@@ -81,11 +110,51 @@ export async function fetchLatestSnapshot(
   return { record: data, snapshot };
 }
 
+export async function fetchLatestSnapshot(
+  client: SupabaseClient,
+): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
+  return fetchLatestFromTable(client, "snapshots");
+}
+
+export async function fetchLatestPremiumSnapshot(
+  client: SupabaseClient,
+): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
+  return fetchLatestFromTable(client, "premium_snapshots");
+}
+
 export async function fetchPreviousSnapshot(
   client: SupabaseClient,
 ): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
   const { data, error } = await client
     .from("snapshots")
+    .select("*")
+    .order("as_of", { ascending: false })
+    .range(1, 1)
+    .single();
+
+  if (error && error.code !== "PGRST116") {
+    throw error;
+  }
+
+  if (!data) return null;
+
+  const snapshot: Snapshot = {
+    asOf: data.as_of,
+    location: data.location ?? undefined,
+    title: data.title,
+    sections: data.sections,
+    rawMarkdown: data.raw_markdown,
+    sourceFileName: data.source_file_name,
+  };
+
+  return { record: data, snapshot };
+}
+
+export async function fetchPreviousPremiumSnapshot(
+  client: SupabaseClient,
+): Promise<{ record: SnapshotRecord; snapshot: Snapshot } | null> {
+  const { data, error } = await client
+    .from("premium_snapshots")
     .select("*")
     .order("as_of", { ascending: false })
     .range(1, 1)
