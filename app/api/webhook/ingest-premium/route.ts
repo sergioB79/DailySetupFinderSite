@@ -11,19 +11,22 @@ export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   try {
     const env = getEnv();
-    if (!env.PREMIUM_INGEST_SECRET) {
+    const premiumSecret = env.PREMIUM_INGEST_SECRET ?? process.env.PREMIUM_INGEST_SECRET;
+    const premiumFolder = env.GDRIVE_PREMIUM_FOLDER_ID ?? process.env.GDRIVE_PREMIUM_FOLDER_ID;
+
+    if (!premiumSecret) {
       return new NextResponse("Premium ingest secret not configured", { status: 500 });
     }
-    if (!env.GDRIVE_PREMIUM_FOLDER_ID) {
+    if (!premiumFolder) {
       return new NextResponse("Premium Drive folder not configured", { status: 500 });
     }
 
     const authHeader = req.headers.get("authorization");
-    if (authHeader !== `Bearer ${env.PREMIUM_INGEST_SECRET}`) {
+    if (authHeader !== `Bearer ${premiumSecret}`) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const { file, content } = await fetchLatestDriveFile(env.GDRIVE_PREMIUM_FOLDER_ID);
+    const { file, content } = await fetchLatestDriveFile(premiumFolder);
     const snapshot = await parseMarkdownToSnapshot(content, file.name);
 
     const supabase = getSupabaseClient();

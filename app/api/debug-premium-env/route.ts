@@ -11,3 +11,4 @@ export async function GET() {
     nodeEnv: env.NODE_ENV,
   });
 }
+
