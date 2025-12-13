@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getCachedLatestSnapshot } from "@/lib/redis";
 import { fetchLatestSnapshot, getSupabaseClient } from "@/lib/supabase";
 import type { Snapshot } from "@/lib/parser";
@@ -149,10 +150,11 @@ export default async function Page() {
           <div className="meta">
             <span className="pill">As of {snapshot.asOf}</span>
           </div>
-          <h1>{title}</h1>
-          <div className="logo-lockup">
-            <Image src={logoComplete} alt="FX Market Atelier logo" className="logo-full" priority />
-          </div>
+          <h1>
+            <Link href="/" className="title-link">
+              {title}
+            </Link>
+          </h1>
           <div style={{ fontSize: 18, color: "var(--muted)", marginTop: 2 }}>{snapshot.asOf}</div>
           {highlight && highlight.items.length > 0 && <p>{highlight.items[0]}</p>}
           {highlight && highlight.items.length > 1 && <p>{highlight.items[1]}</p>}

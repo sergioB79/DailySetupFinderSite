@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import logoComplete from "@/lib/logo_complete.png";
 import logoMonogram from "@/lib/logo_monogram.png";
 
@@ -14,13 +15,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <header className="topbar">
-          <div className="brand">
+          <Link href="/" className="brand brand-link">
             <Image src={logoMonogram} alt="FX Market Atelier logo mark" className="brand-mark" priority />
             <div className="brand-text">
               <div className="brand-name">FX Market Atelier</div>
               <div className="brand-tagline">FX Macro Daily Brief · FX Movers Dossier</div>
             </div>
-          </div>
+          </Link>
           <div className="brand-actions">
             <a className="pill ghost" href="#cta">
               Subscribe
