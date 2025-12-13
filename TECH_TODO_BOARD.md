@@ -39,7 +39,7 @@ TODO Board
   - [x] Macro Compass hero (triad plot, CSS-based) using server data signals; add three-axis labeling.
   - [ ] Scroll-driven narrative using Framer Motion; kinetic typography for key bullets and section reveals.
   - [x] Section panels (Snapshot, Key Forces, FX Implications, Risk Radar, What to Watch Next) with glass/blur styling and anchor links.
-  - [x] Premium promo tile in grid for Movers Playbook CTA.
+  - [x] Premium promo tile in grid for FX Movers Dossier CTA.
   - [x] Static sample page for CTA with organized table + detail cards.
   - [ ] Semantic highlight interactions: hover/tap phrases to show why-it-matters, impacted assets, confidence.
   - [ ] Diff mode toggle overlaying subtle change indicators vs prior day.

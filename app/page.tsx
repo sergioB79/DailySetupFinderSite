@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { getCachedLatestSnapshot } from "@/lib/redis";
 import { fetchLatestSnapshot, getSupabaseClient } from "@/lib/supabase";
 import type { Snapshot } from "@/lib/parser";
+import logoComplete from "@/lib/logo_complete.png";
 
 export const revalidate = 0;
 
@@ -138,7 +140,7 @@ export default async function Page() {
   const { snapshot, diff, source } = latest;
   const highlight = snapshot.sections.find((s) => s.id === "snapshot");
   const narrative = snapshot.sections.filter((s) => s.id !== "snapshot");
-  const title = `FX Macro Daily Brief — ${snapshot.asOf}`;
+  const title = "FX Macro Daily Brief";
 
   return (
     <div className="page">
@@ -148,6 +150,10 @@ export default async function Page() {
             <span className="pill">As of {snapshot.asOf}</span>
           </div>
           <h1>{title}</h1>
+          <div className="logo-lockup">
+            <Image src={logoComplete} alt="FX Market Atelier logo" className="logo-full" priority />
+          </div>
+          <div style={{ fontSize: 18, color: "var(--muted)", marginTop: 2 }}>{snapshot.asOf}</div>
           {highlight && highlight.items.length > 0 && <p>{highlight.items[0]}</p>}
           {highlight && highlight.items.length > 1 && <p>{highlight.items[1]}</p>}
           <div className="narrative">
@@ -172,7 +178,7 @@ export default async function Page() {
             {snapshot.sections.map((section) => (
               <SectionPanel key={section.id} title={section.title} items={section.items} />
             ))}
-            <div className="card wide">
+            <div className="card wide" id="cta">
               <h3
                 className="section-title"
                 style={{ marginBottom: 8, fontSize: 22, letterSpacing: -0.02, color: "#eaf7ff" }}
@@ -191,14 +197,14 @@ export default async function Page() {
               </ul>
               <div className="cta-buttons" style={{ justifyContent: "center" }}>
                 <a className="btn primary" href="#">
-                  Get the Dossier (€39/mo)
+                  Get the Dossier (EUR 39/mo)
                 </a>
                 <a className="btn" href="/sample">
                   See sample
                 </a>
               </div>
               <p style={{ margin: "12px auto 0", color: "var(--muted)", fontSize: 12, maxWidth: 600 }}>
-                Educational content - not investment advice. Cancel anytime.
+                Educational content only. Not investment advice. High risk: you can lose all capital. Cancel anytime.
               </p>
             </div>
           </div>

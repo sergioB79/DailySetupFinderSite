@@ -27,6 +27,84 @@ body {
   background: transparent;
 }
 
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(20px, 4vw, 64px) 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-tagline {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.brand-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pill.ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.footer {
+  max-width: 1200px;
+  margin: 40px auto 32px;
+  padding: 24px clamp(20px, 4vw, 64px) 12px;
+  border-top: 1px solid var(--glass-border);
+  color: var(--muted);
+  text-align: center;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.footer-text {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 960px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .page {
   padding: 48px clamp(20px, 4vw, 64px) 72px;
   max-width: 1200px;
@@ -107,6 +185,16 @@ body {
   font-size: clamp(32px, 4vw, 44px);
   margin: 0 0 12px;
   letter-spacing: -0.03em;
+}
+
+.logo-lockup {
+  margin: 4px 0 10px;
+}
+
+.logo-full {
+  max-width: 260px;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.35));
 }
 
 .hero-copy p {

@@ -326,7 +326,7 @@ export default function SamplePage() {
               Back to today’s brief
             </Link>
             <a className="btn" href="#">
-              Subscribe (€39/mo)
+              Subscribe (EUR 39/mo)
             </a>
           </div>
           <p style={{ marginTop: 10, color: "var(--muted)", fontSize: 12 }}>
@@ -337,6 +337,7 @@ export default function SamplePage() {
     </div>
   );
 }
+
 
 
 
